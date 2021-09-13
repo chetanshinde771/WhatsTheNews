@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="newsArticle"
+            type="com.csapps.whatsthenews.data.entities.NewsArticle" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/round_rect_bg"
+        >
+
+        <ImageView
+            android:id="@+id/articleImage"
+            android:layout_width="@dimen/news_image_size"
+            android:layout_height="@dimen/news_image_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="fitXY"
+            />
+
+        <TextView
+            android:id="@+id/articleTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/articleImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{newsArticle.title}"
+            android:textColor="@color/dark_grey"
+            android:textStyle="bold"
+            android:textSize="@dimen/item_title_text_size"
+            android:padding="3dp"
+            android:layout_marginStart="10dp"
+            />
+
+        <TextView
+            android:id="@+id/articleDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/articleTitle"
+            app:layout_constraintStart_toEndOf="@id/articleImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{newsArticle.description}"
+            android:textColor="@color/dark_grey"
+            android:textSize="@dimen/item_body_text_size"
+            android:padding="3dp"
+            android:layout_marginStart="10dp"
+            android:visibility="@{newsArticle.description.length()>0 ? View.VISIBLE : View.GONE}"
+            />
+
+        <TextView
+            android:id="@+id/articleAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/articleDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{newsArticle.author}"
+            android:textColor="@color/dark_grey"
+            android:textStyle="italic"
+            android:textSize="10sp"
+            android:padding="3dp"
+            android:layout_marginTop="10dp"
+            android:visibility="@{newsArticle.author.length()>0 ? View.VISIBLE : View.GONE}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
