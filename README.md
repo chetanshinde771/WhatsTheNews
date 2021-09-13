@@ -6,6 +6,8 @@ https://newsapi.org/register
 
 The Google News API is available for free for developers with a maximum request of 100 per day. Replace your API key with the default API_KEY value in Config.kt file and run the app.
 
+This app requests for news articles and saves them in Room DB. If internet is not available, the articles saved in Room are presented to user.
+
 - Kotlin
 - MVVM
 - Hilt
